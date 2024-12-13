@@ -54,7 +54,7 @@ function Contacto() {
                 </div>
             </div>
             <div className="w-fit bg-ml_blue text-white font-bold text-base text-center rounded-full my-4 py-2 px-4 cursor-pointer transition-all hover:scale-105">
-                Ver más información
+                Enviar
             </div>
         </div>
     )
