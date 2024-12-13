@@ -10,7 +10,7 @@ function Footer() {
                 <Image src="/MiLegalistaWhiteLogo.png" alt="Logo" width={250} height={50} />
             </div>
             <div className="col-span-12 sm:col-start-7 sm:col-span-6 flex flex-col justify-center items-center">
-                <div className="w-full flex justify-end gap-4 my-4">
+                <div className="w-full flex flex-wrap justify-end gap-4 my-4">
                     <Link href="/nosotros">
                         <p className="text-white font-extralight">
                             Nosotros
