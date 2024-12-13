@@ -47,13 +47,10 @@ function Navbar() {
             navbar?.classList.add('bg-white');
             navbar?.classList.add('shadow-md');
 
-            if (navbar != undefined && navlinks.length > 0) {
-
-                Array.from(navlinks).forEach((link) => {
-                    link.classList.add('text-black');
-                    link.classList.remove('text-white');
-                });
-            }
+            Array.from(navlinks).forEach((link) => {
+                link.classList.add('text-black');
+                link.classList.remove('text-white');
+            });
         }
 
 

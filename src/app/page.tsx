@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Contacto from "./components/Contacto";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -84,9 +85,11 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full sm:w-full flex justify-center">
-            <p className="bg-ml_orange w-fit rounded-full px-4 py-2 my-4 text-white font-bold cursor-pointer transition-all hover:scale-105">
-              Ver más
-            </p>
+            <Link href="/beneficios">
+              <p className="bg-ml_orange w-fit rounded-full px-4 py-2 my-4 text-white font-bold cursor-pointer transition-all hover:scale-105">
+                Ver más
+              </p>
+            </Link>
           </div>
         </div>
         <div className="col-span-12 sm:col-span-5 flex items-center">
@@ -102,9 +105,11 @@ export default function Home() {
           Regístrate y empieza el proceso con un click
         </div>
         <div className="w-full sm:w-fit flex justify-center">
-          <div className="bg-ml_blue text-white font-extrabold rounded-full w-fit px-4 py-2 cursor-pointer transition-transform hover:scale-105">
-            Solicita tu asesoría gratuita
-          </div>
+          <Link href="/contacto">
+            <div className="bg-ml_blue text-white font-extrabold rounded-full w-fit px-4 py-2 cursor-pointer transition-transform hover:scale-105">
+              Solicita tu asesoría gratuita
+            </div>
+          </Link>
         </div>
       </div>
       <div className="min-h-svh w-full px-5 sm:px-24 py-4 bg-services_blue flex flex-col items-center justify-center">
@@ -125,7 +130,7 @@ export default function Home() {
           </div>
           <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
-              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/FamiliarIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
                 Derecho Familiar y Patria protestad
               </p>
@@ -136,7 +141,7 @@ export default function Home() {
           </div>
           <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
-              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/MediacionIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
                 Mediación o Justicia Alternativa
               </p>
@@ -147,7 +152,7 @@ export default function Home() {
           </div>
           <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
-              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/PYJIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
                 Pensiones y Jubilaciones
               </p>
@@ -158,9 +163,11 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full sm:w-fit flex justify-center">
-          <div className="sm:w-full px-5 bg-ml_blue text-white font-bold text-l sm:text-2xl text-center rounded-full my-4 py-2 cursor-pointer transition-all hover:scale-105">
-            Ver más información
-          </div>
+          <Link href={"/servicios"}>
+            <div className="sm:w-full px-5 bg-ml_blue text-white font-bold text-l sm:text-2xl text-center rounded-full my-4 py-2 cursor-pointer transition-all hover:scale-105">
+              Ver más información
+            </div>
+          </Link>
         </div>
       </div>
       <div className="min-h-[32rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
