@@ -2,20 +2,203 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.home-hero {
+  background-image: url("/HomeBackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.aliado-legal {
+  background-image: url("/AliadoLegalBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+.CTA {
+  background-image: url("/CTABG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.FAQ_CTA {
+  background-image: url("/FAQImg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.aboutUsCover {
+  background-image: url("/AboutUsBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.benefitsCover {
+  background-image: url("/BenefitsBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.divorcio {
+  background-image: url("/DivorcioBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.aboutUsOne {
+  background: linear-gradient(to bottom, #132956 50%, transparent 50%);
+}
+
+.aboutAllies {
+  background: linear-gradient(to bottom, #ff8b00 50%, transparent 50%);
+}
+
+.ourHistory {
+  background-image: url("/HistoryBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.orientacionpsic {
+  background-image: url("/OrientacionPiscBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.orientacionpsicmobile {
+  background-image: url("/PsicMobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.asesoriafin {
+  background-image: url("/AsesoriaFinBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.asesoriafinmobile {
+  background-image: url("/FinMobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.reinsercionlaboral {
+  background-image: url("/ReinsercionLaboralBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.reinsercionlaboralmobile {
+  background-image: url("/ReinsercionMobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.reubicacionvivienda {
+  background-image: url("/ReubicacionViviendaBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.reubicacionviviendamobile {
+  background-image: url("/ReubicacionMobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.contacto {
+  background-image: url("/ContactoBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  float: left; 
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-hero {
+    background-image: url("/CoverMobile.png") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .aliado-legal {
+    background-image: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center left;
+  }
+
+  .orientacionpsic {
+    background: none;
+  }
+
+  .asesoriafin {
+    background: none;
+  }
+
+  .reinsercionlaboral {
+    background: none;
+  }
+
+  .reubicacionvivienda {
+    background: none;
+  }
+
+  .contacto {
+    background: none;
+  }
+  
+  .mobilecontact {
+    background-image: url("/ContactMobileBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
 }

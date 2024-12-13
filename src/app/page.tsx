@@ -1,101 +1,191 @@
 import Image from "next/image";
+import Contacto from "./components/Contacto";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="w-svw min-h-svh">
+      {/* Sección 1 */}
+      <div id="cover" className="home-hero grid grid-cols-12 px-5 sm:px-24 gap-4">
+        <div className="h-[80vh] sm:h-svh col-span-12 sm:col-span-5 flex flex-col justify-end sm:justify-center">
+          <p className="text-3xl text-center sm:text-left gap-4">
+            <span className="text-title_mobile sm:text-title text-center text-ml_blue font-extrabold">
+              Tu bienestar es
+            </span>
+            <br />
+            <span className="text-title_mobile sm:text-title text-ml_orange font-extrabold">
+              nuestra prioridad legal
+            </span>
+          </p>
+          <p className="font-extralight my-6 text-[16px] sm:text-[22px] pr-6">
+            Nos especializamos en servicios legales accesible para familias, ofreciendo apoyo personalizado en cada paso del proceso legal.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+            <div className="col-span-1 text-ml_orange font-bold">
+              Divorcios
+            </div>
+            <div className="col-span-1 text-ml_orange font-bold">
+              Derecho Familiar
+            </div>
+            <div className="col-span-1 text-ml_orange font-bold">
+              Mediación
+            </div>
+            <div className="col-span-1 text-ml_orange font-bold">
+              Pensiones
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="w-full my-8 px-5">
+        <Separator className="block sm:hidden h-0.5 bg-ml_blue px-5" />
+      </div>
+      {/* Sección 2 */}
+      <div className="aliado-legal min-h-[32rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
+        <div className="hidden sm:col-span-5 sm:flex items-center">
+          <Image src="/AliadoImg.png" alt="Aliado Legal" width={610} height={450} />
+        </div>
+        <div className="col-span-12 sm:col-span-7 flex flex-col justify-center ">
+          <p className="text-subtitle_mobile sm:text-subtitle text-ml_orange font-extrabold">
+            Somos tu aliado legal
+          </p>
+          <p className="font-extralight my-6 text-[16px] sm:text-[22px]">
+            Creemos en una servicios legales diseñada para todos, ofreciendo asesoría legal accesible, clara y con un trato cercano. Nuestro objetivo es brindar acompañamiento personalizado, asegurándonos de que cada persona reciba el apoyo que merece en cada etapa de su proceso.
+          </p>
+        </div>
+        <div className="sm:hidden col-span-12 flex items-center">
+          <Image src="/AlliesMobile.png" alt="Aliado Legal" width={328} height={300} />
+        </div>
+      </div>
+      {/* Sección 3 */}
+      <div className="bg-ml_blue min-h-svh grid grid-cols-12 px-5 sm:px-24 py-24 gap-4">
+        <div className="col-span-12 sm:col-span-7">
+          <p className="text-subtitle_mobile sm:text-subtitle text-white font-extrabold">
+            No es solo una demanda, es una etapa de tu vida.
+          </p>
+          <p className="font-extralight text-base my-6 text-[16px] text-white">
+            Nuestro enfoque es acompañarte en cada aspecto, no solo resolviendo el conflicto, sino también brindándote el apoyo necesario para que avances con tranquilidad y confianza, asegurándote de que tienes un respaldo sólido en cada paso del camino.
+          </p>
+          <div className="grid grid-cols-2 gap-4 pr-4 my-2">
+            <div className="col-span-1 grid grid-cols-3 gap-4">
+              <Image className="col-span-1" src="/OrientacionPsic.svg" alt="Orientación Psicológica" width={100} height={100} />
+              <p className="col-span-2 text-white font-extralight text-[12px] sm:text-[16px] flex items-center justify-left">Orientación en Psicología</p>
+            </div>
+            <div className="col-span-1 grid grid-cols-3 gap-4">
+              <Image className="col-span-1" src="/AsesoriaFinanciera.svg" alt="Asesoría Financiera" width={100} height={100} />
+              <p className="col-span-2 text-white font-extralight text-[12px] sm:text-[16px]  flex items-center justify-left">Asesoría Financiera</p>
+            </div>
+            <div className="col-span-1 grid grid-cols-3 gap-4">
+              <Image className="col-span-1" src="/ReinsercionLaboral.svg" alt="Reinserción Laboral" width={100} height={100} />
+              <p className="col-span-2 text-white font-extralight text-[12px] sm:text-[16px]  flex items-center justify-left">Orientación en Reinserción Laboral</p>
+            </div>
+            <div className="col-span-1 grid grid-cols-3 gap-4">
+              <Image className="col-span-1" src="/UbicacionVivienda.svg" alt="Reubicación de Vivienda" width={100} height={100} />
+              <p className="col-span-2 text-white font-extralight text-[12px] sm:text-[16px] flex items-center justify-left">Asesoría en reubicación de vivienda</p>
+            </div>
+          </div>
+          <div className="w-full sm:w-full flex justify-center">
+            <p className="bg-ml_orange w-fit rounded-full px-4 py-2 my-4 text-white font-bold cursor-pointer transition-all hover:scale-105">
+              Ver más
+            </p>
+          </div>
+        </div>
+        <div className="col-span-12 sm:col-span-5 flex items-center">
+          <Image className="hidden sm:block" src="/ServiceHome.png" alt="Servicios" width={610} height={600} />
+          <Image className="sm:hidden" src="/ServiciosImgMobile.png" alt="Servicios" width={328} height={300} />
+        </div>
+      </div>
+      <div className="CTA h-52 w-full sm:px-24 py-4">
+        <p className="text-white sm:text-ml_blue text-title_mobile sm:text-title font-bold">
+          ¡Resolvamos juntos!
+        </p>
+        <div className="text-white text-center sm:text-left text-l sm:text-2xl font-extralight my-2">
+          Regístrate y empieza el proceso con un click
+        </div>
+        <div className="w-full sm:w-fit flex justify-center">
+          <div className="bg-ml_blue text-white font-extrabold rounded-full w-fit px-4 py-2 cursor-pointer transition-transform hover:scale-105">
+            Solicita tu asesoría gratuita
+          </div>
+        </div>
+      </div>
+      <div className="min-h-svh w-full px-5 sm:px-24 py-4 bg-services_blue flex flex-col items-center justify-center">
+        <p className="text-xl text-ml_blue font-bold text-center py-7">
+          Nuestros Servicios
+        </p>
+        <div className="w-full grid grid-cols-12 gap-6">
+          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+            <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <p className="font-bold text-sm sm:text-base text-center">
+                Divorcios y Disoluciones
+              </p>
+              <p className="font-extralight text-xs sm:text-sm text-center my-5">
+                Sabemos que un divorcio puede ser complicado. Te ofrecemos apoyo legal claro y cercano para hacerlo más llevadero, guiándote en cada paso según tu situación.
+              </p>
+            </div>
+          </div>
+          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+            <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <p className="font-bold text-sm sm:text-base text-center">
+                Derecho Familiar y Patria protestad
+              </p>
+              <p className="font-extralight text-xs sm:text-sm text-center my-5">
+                La guardia y custodia debe priorizar la estabilidad y seguridad de los menores. Logramos acuerdos que cuiden sus necesidades con un enfoque profesional y humano.
+              </p>
+            </div>
+          </div>
+          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+            <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <p className="font-bold text-sm sm:text-base text-center">
+                Mediación o Justicia Alternativa
+              </p>
+              <p className="font-extralight text-xs sm:text-sm text-center my-5">
+                La mediación es clave para acuerdos justos y respetuosos. Te ayudamos a dialogar y evitar procesos legales innecesarios, priorizando empatía y soluciones equilibradas.
+              </p>
+            </div>
+          </div>
+          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+            <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
+              <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
+              <p className="font-bold text-sm sm:text-base text-center">
+                Pensiones y Jubilaciones
+              </p>
+              <p className="font-extralight text-xs sm:text-sm text-center my-5">
+                Planear una pensión o jubilación puede ser complejo. Te asesoramos para asegurar tus beneficios y un retiro estable, con apoyo especializado.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="w-full sm:w-fit flex justify-center">
+          <div className="sm:w-full px-5 bg-ml_blue text-white font-bold text-l sm:text-2xl text-center rounded-full my-4 py-2 cursor-pointer transition-all hover:scale-105">
+            Ver más información
+          </div>
+        </div>
+      </div>
+      <div className="min-h-[32rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
+        <div className="col-span-12 sm:col-span-7 flex flex-col justify-center ">
+          <p className="text-subtitle_mobile sm:text-subtitle text-ml_orange font-extrabold">
+            Abogacía centrada en tu bienestar
+          </p>
+          <p className="font-extralight my-6 text-[16px] sm:text-[22px]">
+            Entendemos que una demanda no solo es un trámite, sino una experiencia personal. Ponemos en el centro de todo a las personas, ofreciendo un servicio cercano, empático y pensado para que te sientas respaldado y comprendido en cada etapa del proceso.          </p>
+        </div>
+        <div className="col-span-12 sm:col-span-5 flex items-center">
+          <Image src="/Bienestar.svg" alt="Aliado Legal" width={610} height={450} />
+        </div>
+      </div>
+      <div className="FAQ_CTA h-52 w-full sm:px-24 py-4 grid grid-cols-12">
+        <div className="sm:col-start-7 col-span-12 sm:col-span-6 flex flex-col justify-center items-center sm:items-end gap-4">
+          <p className="text-white text-l sm:text-3xl font-bold">
+            ¿Todavía tienes preguntas?
+          </p>
+          <div className="bg-ml_orange text-[16px] text-white font-extrabold rounded-full w-fit px-4 py-2 cursor-pointer transition-transform hover:scale-105">
+            Déjanos aclararlas por ti.
+          </div>
+        </div>
+      </div>
+      <Contacto />
+    </main>
   );
 }
