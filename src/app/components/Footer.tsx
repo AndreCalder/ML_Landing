@@ -38,11 +38,9 @@ function Footer() {
                     </Link>
                 </div>
                 <div className="w-full flex justify-center sm:justify-end gap-4 my-4">
-                    <Image src="/Facebook.svg" alt="Facebook" width={25} height={25} />
-                    <Image src="/Tiktok.svg" alt="Tiktok" width={25} height={25} />
-                    <Image src="/X.svg" alt="X" width={25} height={25} />
-                    <Image src="/Instagram.svg" alt="Instagram" width={25} height={25} />
-                    <Image src="/Linkedin.svg" alt="Linkedin" width={25} height={25} />
+                    <Image className='cursor-pointer' src="/Facebook.svg" alt="Facebook" width={25} height={25} />
+                    <Image className='cursor-pointer' src="/Tiktok.svg" alt="Tiktok" width={25} height={25} />
+                    <Image className='cursor-pointer' src="/Instagram.svg" alt="Instagram" width={25} height={25} />
                 </div>
             </div>
             <Separator className="col-span-12 bg-ml_orange" />

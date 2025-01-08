@@ -38,8 +38,22 @@ function Navbar() {
 
     useEffect(() => {
         if (pathname === '/') {
-            handleScroll();
-            window.addEventListener('scroll', handleScroll);
+            if(window.screen.width < 768) {
+                const navbar = document.getElementById('navbar');
+                const navlinks = document.getElementsByClassName('nav-link');
+    
+                navbar?.classList.add('bg-white');
+                navbar?.classList.add('shadow-md');
+    
+                Array.from(navlinks).forEach((link) => {
+                    link.classList.add('text-black');
+                    link.classList.remove('text-white');
+                });
+            } else {
+                handleScroll();
+                window.addEventListener('scroll', handleScroll);
+            }
+
         } else {
             const navbar = document.getElementById('navbar');
             const navlinks = document.getElementsByClassName('nav-link');

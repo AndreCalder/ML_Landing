@@ -164,18 +164,18 @@ function Nosotros() {
 
     return (
         <div className="pt-12 min-h-svh h-fit w-full">
-            <div className="w-full h-52 aboutUsCover grid grid-cols-12 sm:px-24">
+            <div className="w-full h-52 bg-left aboutUsCover grid grid-cols-12 sm:px-24">
                 <div className="col-span-12 sm:col-span-4  flex items-center">
                     <p className="text-ml_orange text-title_mobile sm:text-title font-extrabold">
                         Sobre  nosotros
                     </p>
                 </div>
             </div>
-            <div className="w-full h-[100vh] flex flex-col aboutUsOne">
+            <div className="w-full h-[80vh] md:h-[100vh] flex flex-col aboutUsOne">
                 <div className="text-2xl sm:text-3xl text-ml_orange font-extrabold rounded-full w-full px-4 py-4 text-center">
                     Conoce a nuestro equipo
                 </div>
-                <div className="w-full h-[80vh] flex justify-center items-center gap-5 sm:hidden">
+                <div className="w-full h-[60vh] md:h-[80vh] flex justify-center items-center gap-5 sm:hidden">
                     {
                         team.length > 1 && <MoveLeft className='cursor-pointer' size={16} />
                     }
@@ -190,11 +190,11 @@ function Nosotros() {
                     <AboutUsCard img='/Fer.png' name='Fernando Suárez Fernández' role='Fundador y Director General' description='Con más de 20 años en el Poder Judicial, ha ocupado roles clave en la Suprema Corte y el Consejo de la Judicatura. Su visión combina conocimiento jurídico con un enfoque centrado en el bienestar de las familias y el acceso humano a la justicia.' academicInfo={academicInfo["Fer"]} />
                 </div>
             </div>
-            <div className="w-full h-[95vh] aboutAllies py-6">
+            <div className="w-full h-[90vh] md:h-[100vh] aboutAllies py-6">
                 <div className="text-2xl sm:text-3xl text-ml_blue font-extrabold rounded-full w-full px-4 py-4 text-center">
                     Nuestros aliados
                 </div>
-                <div className="w-full h-[80vh] flex justify-center items-center gap-5 sm:hidden">
+                <div className="w-full h-[80vh] flex justify-center items-center gap-5 md:hidden">
                     <MoveLeft onClick={() => {
                         if (currAlly === 0) {
                             setCurrAlly(allies.length - 1)
@@ -213,13 +213,13 @@ function Nosotros() {
                         }
                     }} className='cursor-pointer text-ml_blue' size={16} />
                 </div>
-                <div className="h-full w-full hidden justify-center items-center gap-5 sm:flex">
+                <div className="h-full w-full hidden justify-center items-center gap-5 md:flex">
                     <AboutUsCard img='/Gabriela.png' name='Gabriela T. Ortíz Fascinetto' role='Psicóloga' description='Especialista en psicoterapia Gestalt, brinda apoyo emocional durante procesos legales, ayudando a gestionar los retos emocionales derivados de situaciones complicadas.' academicInfo={academicInfo["Gabriela"]} />
                     <AboutUsCard img='/AnaPao.png' name='Ana Paola Villegas' role='Asesora Financiera' description='Profesional en planificación financiera, ofrece estrategias personalizadas para mejorar tu estabilidad económica con conocimientos clave para afrontar cambios financieros.' academicInfo={academicInfo["AnaPao"]} />
                 </div>
             </div>
             <div className="min-h-[32rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4 ourHistory">
-                <div className="col-span-12 sm:col-span-7 flex flex-col justify-center ">
+                <div className="col-span-12 md:col-span-7 flex flex-col justify-center ">
                     <p className="text-subtitle_mobile sm:text-subtitle text-black font-extrabold">
                         Nuestra historia
                     </p>
@@ -227,7 +227,7 @@ function Nosotros() {
                         Nuestra historia comienza con la convicción de que los procesos legales no solo requieren soluciones jurídicas, sino también un acompañamiento humano. Identificamos la falta de cercanía y apoyo integral en el ámbito legal tradicional, lo que nos llevó a crear un enfoque accesible y empático. Hoy, estamos comprometidos a brindar claridad, respaldo y tranquilidad en cada etapa del camino, asegurándonos de que nadie enfrente estos desafíos en soledad.
                     </p>
                 </div>
-                <div className="col-span-12 sm:col-span-5 flex items-center">
+                <div className="col-span-12 md:col-span-5 flex items-center">
                     <Image src="/OurHistory.png" alt="Nuestra Historia" width={610} height={450} />
                 </div>
             </div>
@@ -236,7 +236,7 @@ function Nosotros() {
                     Lo que nos define
                 </p>
                 <div className="w-full grid grid-cols-12 py-6 sm:py-0 gap-6">
-                    <div className="col-span-12 sm:col-span-4 flex flex-col justify-center items-center">
+                    <div className="col-span-12 md:col-span-4 flex flex-col justify-center items-center">
                         <Image src="/Purpose.svg" alt="Propósito" width={100} height={100} />
                         <p className="text-base font-bold py-4">
                             Propósito
@@ -245,7 +245,7 @@ function Nosotros() {
                             Ofrecer un servicio legal integral con abogados especializados que, además, brinde apoyo emocional, laboral, financiero y práctico para reducir el estrés y la incertidumbre durante su proceso legal.
                         </p>
                     </div>
-                    <div className="col-span-12 sm:col-span-4 flex flex-col justify-center items-center">
+                    <div className="col-span-12 md:col-span-4 flex flex-col justify-center items-center">
                         <Image src="/Mission.svg" alt="Misión" width={100} height={100} />
                         <p className="text-base font-bold py-4">
                             Misión
@@ -253,7 +253,7 @@ function Nosotros() {
                         <p className="text-sm sm:text-base font-light text-center">
                             Ser un aliado confiable que acompaña a nuestros clientes en sus momentos más difíciles, brindándoles confianza, claridad y soluciones efectivas para superar sus desafíos legales.                        </p>
                     </div>
-                    <div className="col-span-12 sm:col-span-4 flex flex-col justify-center items-center">
+                    <div className="col-span-12 md:col-span-4 flex flex-col justify-center items-center">
                         <Image src="/Vision.svg" alt="Visión" width={100} height={100} />
                         <p className="text-base font-bold py-4">
                             Propósito

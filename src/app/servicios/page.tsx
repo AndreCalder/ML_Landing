@@ -38,25 +38,25 @@ function Servicios() {
                     Con un enfoque centrado en tu bienestar, nos dedicamos a brindarte las herramientas necesarias para que enfrentes cualquier desafío con confianza y claridad, asegurando que cada aspecto de tu situación sea tratado con profesionalismo y cercanía.
                 </div>
                 <div className="w-full grid grid-cols-12 gap-4">
-                    <div onClick={() => scrollToDivCenter("divorcio")} className="col-span-6 sm:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
+                    <div onClick={() => scrollToDivCenter("divorcio")} className="col-span-6 md:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
                         Divorcio
                     </div>
-                    <div onClick={() => scrollToDivCenter("guardiaycustodia")} className="col-span-6 sm:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
+                    <div onClick={() => scrollToDivCenter("guardiaycustodia")} className="col-span-6 md:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
                         Guardia y Custodia
                     </div>
-                    <div onClick={() => scrollToDivCenter("mediacion")} className="col-span-6 sm:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
+                    <div onClick={() => scrollToDivCenter("mediacion")} className="col-span-6 md:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
                         Mediación
                     </div>
-                    <div onClick={() => scrollToDivCenter("pensionesyjub")} className="col-span-6 sm:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
+                    <div onClick={() => scrollToDivCenter("pensionesyjub")} className="col-span-6 md:col-span-3 text-ml_blue bg-services_blue text-center flex justify-center items-center font-bold py-2 px-8 rounded-[15px] cursor-pointer">
                         Pensiones y Jubilaciones
                     </div>
                 </div>
             </div>
-            <div className="w-full min-h-[20rem] sm:hidden py-6">
-                <Image src="/ServicioDivorcio.png" alt='Atencion Personalizada' width={610} height={495} />
+            <div className="w-full min-h-[15rem] flex justify-center md:hidden py-6">
+                <Image src="/ServicioDivorcio.png" alt='Atencion Personalizada' width={410} height={435} />
             </div>
             <div id="divorcio" className="min-h-[36rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
-                <div className="col-span-12 sm:col-span-6 flex flex-col justify-center ">
+                <div className="col-span-12 md:col-span-6 flex flex-col justify-center ">
                     <p className="text-xl sm:text-3xl text-black font-extrabold">
                         Divorcio
                     </p>
@@ -94,18 +94,18 @@ function Servicios() {
                         </li>
                     </ul>
                 </div>
-                <div className="col-span-12 sm:col-span-6  hidden sm:flex flex-col justify-center items-center">
+                <div className="col-span-12 md:col-span-6  hidden md:flex flex-col justify-center items-center">
                     <Image src="/ServicioDivorcio.png" alt='Atencion Personalizada' width={610} height={495} />
                 </div>
             </div>
-            <div className="w-full min-h-[20rem] sm:hidden py-6">
-                <Image src="/ServicioGyC.png" alt='Atencion Personalizada' width={610} height={495} />
+            <div className="w-full min-h-[20rem] flex justify-center md:hidden py-6">
+                <Image src="/ServicioGyC.png" alt='Atencion Personalizada' width={410} height={495} />
             </div>
             <div id="guardiaycustodia" className="min-h-[36rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
-                <div className="col-span-12 sm:col-span-6  hidden sm:flex flex-col justify-center items-center">
+                <div className="col-span-12 sm:col-span-6  hidden md:flex flex-col justify-center items-center">
                     <Image src="/ServicioGyC.png" alt='Atencion Personalizada' width={610} height={495} />
                 </div>
-                <div className="col-span-12 sm:col-span-6 flex flex-col justify-center ">
+                <div className="col-span-12 md:col-span-6 flex flex-col justify-center ">
                     <p className="text-xl sm:text-3xl text-black font-extrabold">
                         Guardia y Custodia
                     </p>
@@ -143,11 +143,11 @@ function Servicios() {
                     </ul>
                 </div>
             </div>
-            <div className="w-full min-h-[20rem] sm:hidden py-6">
-                <Image src="/ServicioMediacion.png" alt='Atencion Personalizada' width={610} height={495} />
+            <div className="w-full min-h-[20rem] flex justify-center md:hidden py-6">
+                <Image src="/ServicioMediacion.png" alt='Atencion Personalizada' width={410} height={495} />
             </div>
             <div id="mediacion" className="min-h-[36rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
-                <div className="col-span-12 sm:col-span-6 flex flex-col justify-center ">
+                <div className="col-span-12 md:col-span-6 flex flex-col justify-center ">
                     <p className="text-xl sm:text-3xl text-black font-extrabold">
                         Mediación
                     </p>
@@ -183,18 +183,18 @@ function Servicios() {
                         </li>
                     </ul>
                 </div>
-                <div className="col-span-12 sm:col-span-6  hidden sm:flex flex-col justify-center items-center">
+                <div className="col-span-12 md:col-span-6  hidden md:flex flex-col justify-center items-center">
                     <Image src="/ServicioMediacion.png" alt='Atencion Personalizada' width={610} height={495} />
                 </div>
             </div>
-            <div className="w-full min-h-[20rem] sm:hidden py-6">
-                <Image src="/PensionesyJub.png" alt='Atencion Personalizada' width={610} height={495} />
+            <div className="w-full min-h-[20rem] flex justify-center md:hidden py-6">
+                <Image src="/PensionesyJub.png" alt='Atencion Personalizada' width={410} height={495} />
             </div>
             <div id="pensionesyjub" className="min-h-[36rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
-                <div className="col-span-12 sm:col-span-6 hidden sm:flex flex-col justify-center items-center">
+                <div className="col-span-12 md:col-span-6 hidden md:flex flex-col justify-center items-center">
                     <Image src="/PensionesyJub.png" alt='Atencion Personalizada' width={610} height={495} />
                 </div>
-                <div className="col-span-12 sm:col-span-6 flex flex-col justify-center ">
+                <div className="col-span-12 md:col-span-6 flex flex-col justify-center ">
                     <p className="text-xl sm:text-3xl text-black font-extrabold">
                         Pensiones y Jubilaciones
                     </p>

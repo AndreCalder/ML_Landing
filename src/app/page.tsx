@@ -8,7 +8,7 @@ export default function Home() {
     <main className="w-svw min-h-svh">
       {/* Sección 1 */}
       <div id="cover" className="home-hero grid grid-cols-12 px-5 sm:px-24 gap-4">
-        <div className="h-[80vh] sm:h-svh col-span-12 sm:col-span-5 flex flex-col justify-end sm:justify-center">
+        <div className="h-[80vh] sm:h-svh col-span-12 md:col-span-5 flex flex-col justify-end md:justify-center">
           <p className="text-3xl text-center sm:text-left gap-4">
             <span className="text-title_mobile sm:text-title text-center text-ml_blue font-extrabold">
               Tu bienestar es
@@ -22,16 +22,16 @@ export default function Home() {
             Nos especializamos en servicios legales accesible para familias, ofreciendo apoyo personalizado en cada paso del proceso legal.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-            <div className="col-span-1 text-ml_orange font-bold">
+            <div className="col-span-2 lg:col-span-1 text-ml_orange font-bold">
               Divorcios
             </div>
-            <div className="col-span-1 text-ml_orange font-bold">
+            <div className="col-span-2 lg:col-span-1 text-ml_orange font-bold">
               Derecho Familiar
             </div>
-            <div className="col-span-1 text-ml_orange font-bold">
+            <div className="col-span-2 lg:col-span-1 text-ml_orange font-bold">
               Mediación
             </div>
-            <div className="col-span-1 text-ml_orange font-bold">
+            <div className="col-span-2 lg:col-span-1 text-ml_orange font-bold">
               Pensiones
             </div>
           </div>
@@ -42,10 +42,10 @@ export default function Home() {
       </div>
       {/* Sección 2 */}
       <div className="aliado-legal min-h-[32rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
-        <div className="hidden sm:col-span-5 sm:flex items-center">
+        <div className="hidden md:col-span-5 md:flex items-center">
           <Image src="/AliadoImg.png" alt="Aliado Legal" width={610} height={450} />
         </div>
-        <div className="col-span-12 sm:col-span-7 flex flex-col justify-center ">
+        <div className="col-span-12 md:col-span-7 flex flex-col justify-center ">
           <p className="text-subtitle_mobile sm:text-subtitle text-ml_orange font-extrabold">
             Somos tu aliado legal
           </p>
@@ -53,13 +53,13 @@ export default function Home() {
             Creemos en una servicios legales diseñada para todos, ofreciendo asesoría legal accesible, clara y con un trato cercano. Nuestro objetivo es brindar acompañamiento personalizado, asegurándonos de que cada persona reciba el apoyo que merece en cada etapa de su proceso.
           </p>
         </div>
-        <div className="sm:hidden col-span-12 flex items-center">
+        <div className="md:hidden col-span-12 flex justify-center items-center">
           <Image src="/AlliesMobile.png" alt="Aliado Legal" width={328} height={300} />
         </div>
       </div>
       {/* Sección 3 */}
       <div className="bg-ml_blue min-h-svh grid grid-cols-12 px-5 sm:px-24 py-24 gap-4">
-        <div className="col-span-12 sm:col-span-7">
+        <div className="col-span-12 md:col-span-7">
           <p className="text-subtitle_mobile sm:text-subtitle text-white font-extrabold">
             No es solo una demanda, es una etapa de tu vida.
           </p>
@@ -92,12 +92,12 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="col-span-12 sm:col-span-5 flex items-center">
+        <div className="col-span-12 md:col-span-5 flex items-center">
           <Image className="hidden sm:block" src="/ServiceHome.png" alt="Servicios" width={610} height={600} />
           <Image className="sm:hidden" src="/ServiciosImgMobile.png" alt="Servicios" width={328} height={300} />
         </div>
       </div>
-      <div className="CTA h-52 w-full sm:px-24 py-4">
+      <div className="CTA min-h-52 w-full sm:px-24 py-4">
         <p className="text-white sm:text-ml_blue text-title_mobile sm:text-title font-bold">
           ¡Resolvamos juntos!
         </p>
@@ -117,7 +117,7 @@ export default function Home() {
           Nuestros Servicios
         </p>
         <div className="w-full grid grid-cols-12 gap-6">
-          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+          <div className="divorcio col-span-6 lg:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
               <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/DivorcioIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
@@ -128,7 +128,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+          <div className="divorcio col-span-6 lg:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
               <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/FamiliarIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
@@ -139,7 +139,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+          <div className="divorcio col-span-6 lg:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
               <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/MediacionIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
@@ -150,7 +150,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="divorcio col-span-6 sm:col-span-3 h-80 rounded-[15px] relative">
+          <div className="divorcio col-span-6 lg:col-span-3 h-80 rounded-[15px] relative">
             <div className="w-full bg-white h-4/5 px-2 rounded-[15px] absolute bottom-0 pt-12 pb-4 flex flex-col justify-around items-center">
               <Image className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" src="/PYJIcon.svg" alt="Divorcio" width={60} height={60} />
               <p className="font-bold text-sm sm:text-base text-center">
@@ -171,18 +171,18 @@ export default function Home() {
         </div>
       </div>
       <div className="min-h-[32rem] grid grid-cols-12 py-6 px-5 sm:px-24 gap-4">
-        <div className="col-span-12 sm:col-span-7 flex flex-col justify-center ">
+        <div className="col-span-12 md:col-span-7 flex flex-col justify-center ">
           <p className="text-subtitle_mobile sm:text-subtitle text-ml_orange font-extrabold">
             Abogacía centrada en tu bienestar
           </p>
           <p className="font-extralight my-6 text-[16px] sm:text-[22px]">
             Entendemos que una demanda no solo es un trámite, sino una experiencia personal. Ponemos en el centro de todo a las personas, ofreciendo un servicio cercano, empático y pensado para que te sientas respaldado y comprendido en cada etapa del proceso.          </p>
         </div>
-        <div className="col-span-12 sm:col-span-5 flex items-center">
+        <div className="col-span-12 md:col-span-5 flex justify-center items-center">
           <Image src="/Bienestar.svg" alt="Aliado Legal" width={610} height={450} />
         </div>
       </div>
-      <div className="FAQ_CTA h-52 w-full sm:px-24 py-4 grid grid-cols-12">
+      <div className="FAQ_CTA min-h-52 w-full sm:px-24 py-4 grid grid-cols-12">
         <div className="sm:col-start-7 col-span-12 sm:col-span-6 flex flex-col justify-center items-center sm:items-end gap-4">
           <p className="text-white text-l sm:text-3xl font-bold">
             ¿Todavía tienes preguntas?

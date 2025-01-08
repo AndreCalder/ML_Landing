@@ -160,17 +160,34 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .home-hero {
     background-image: url("/CoverMobile.png") !important;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
+
+
+  .aboutUsCover {
+    background-image: url("/AboutUsBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .benefitsCover {
+    background-image: url("/BenefitsBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
   .aliado-legal {
     background-image: none;
-    background-size: cover;
+    background-size: co;
     background-repeat: no-repeat;
     background-position: center left;
   }

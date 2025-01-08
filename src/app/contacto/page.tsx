@@ -16,7 +16,7 @@ function Contacto() {
 
     return (
         <div className="contacto w-full min-h-svh grid grid-cols-12">
-            <div className="col-span-12 sm:col-span-6 px-5 py-6 gap-4">
+            <div className="col-span-12 md:col-span-6 lg:px-5 py-6 gap-4">
                 <div className="h-full w-full px-5 sm:pl-24 py-4 flex flex-col items-center justify-center gap-5">
                     <p className="text-xl text-ml_blue font-bold text-center py-7">
                         Estás a un click de conocer a tu aliado legal
@@ -64,7 +64,7 @@ function Contacto() {
                     </div>
                 </div>
             </div>
-            <div className='col-span-12 sm:col-span-6 pl-5 gap-4 flex flex-col justify-center mobilecontact'>
+            <div className='col-span-12 md:col-span-6 pl-5 gap-4 flex flex-col justify-center mobilecontact'>
                 <div className="w-full h-fit flex flex-col justify-center">
                     <div className="flex items-center h-fit">
                         <Image src="/OneIcon.svg" alt="Step 1" width={90} height={90} />
@@ -92,19 +92,35 @@ function Contacto() {
                     </div>
                 </div>
 
-                <div className="w-full h-fit px-6 py-3 bg-white rounded-tl-[65px] rounded-bl-[65px] hidden sm:flex items-center gap-5">
-                    <div className="flex items-center">
+                <div className="w-full h-fit px-6 py-3 bg-white rounded-tl-[65px] rounded-bl-[65px] hidden lg:flex flex-col xl:justify-around xl:flex-row gap-5">
+                    <div className="hidden xl:flex items-center">
                         <Image src="/ContactPhone.svg" alt="Phone Number" width={40} height={40} />
-                        <p className='ml-2 text-xs text-ml_blue'>4495578846</p>
+                        <p className='ml-2 text-xs text-ml_blue'>55 1830 2233</p>
                     </div>
-                    <div className="flex items-center">
+                    <div className="hidden xl:flex items-center">
                         <Image src="/ContactMail.svg" alt="Email Address" width={40} height={40} />
                         <p className='ml-2 text-xs text-ml_blue'>fernandosuarez@milegalista.com</p>
                     </div>
-                    <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
-                    <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
-                    <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
-                    <Image src="/ContactLinkedin.svg" alt="Email Address" width={40} height={40} />
+                    <div className="w-full justify-around gap-5 hidden lg:flex xl:hidden">
+                        <div className="flex items-center">
+                            <Image src="/ContactPhone.svg" alt="Phone Number" width={40} height={40} />
+                            <p className='ml-2 text-xs text-ml_blue'>55 1830 2233</p>
+                        </div>
+                        <div className="flex items-center">
+                            <Image src="/ContactMail.svg" alt="Email Address" width={40} height={40} />
+                            <p className='ml-2 text-xs text-ml_blue'>fernandosuarez@milegalista.com</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-x-5">
+                        <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
+                        <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
+                        <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
+                    </div>
+                    <div className="w-full justify-center gap-5 hidden lg:flex xl:hidden">
+                        <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
+                        <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
+                        <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
+                    </div>
                 </div>
             </div>
         </div>
