@@ -4,6 +4,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 
 function Contacto() {
@@ -112,14 +113,26 @@ function Contacto() {
                         </div>
                     </div>
                     <div className="flex gap-x-5">
-                        <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
-                        <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
-                        <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
+                        <Link href="https://www.facebook.com/milegalista">
+                            <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
+                        </Link>
+                        <Link href="https://www.tiktok.com/@milegalista">
+                            <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} /> 
+                        </Link>
+                        <Link href="https://www.instagram.com/milegalista/">
+                            <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
+                        </Link>
                     </div>
                     <div className="w-full justify-center gap-5 hidden lg:flex xl:hidden">
-                        <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
-                        <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
-                        <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
+                        <Link href="https://www.facebook.com/milegalista">
+                            <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
+                        </Link>
+                        <Link href="https://www.tiktok.com/@milegalista">
+                            <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
+                        </Link>
+                        <Link href="https://www.instagram.com/milegalista/">
+                            <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
+                        </Link>
                     </div>
                 </div>
             </div>

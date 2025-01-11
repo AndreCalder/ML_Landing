@@ -123,17 +123,20 @@ function FAQ() {
         <div onClick={() => setSelectedCategory("pyj")} className={`w-fit flex justify-center items-center text-xs sm:text-sm text-ml_blue text-center font-bold py-2 px-8 rounded-full cursor-pointer ${selectedCategory == "pyj" ? "bg-ml_blue text-white" : "bg-white border-ml_blue border-2 text-ml_blue"}`}>
           Pensiones y Jubilaciones
         </div>
-        <div onClick={() => setSelectedCategory("otras")} className={`w-fi flex justify-center items-center text-xs sm:text-smt text-ml_blue text-center font-bold py-2 px-8 rounded-full cursor-pointer ${selectedCategory == "otras" ? "bg-ml_blue text-white" : "bg-white border-ml_blue border-2 text-ml_blue"}`}>
+        {/*
+                <div onClick={() => setSelectedCategory("otras")} className={`w-fi flex justify-center items-center text-xs sm:text-smt text-ml_blue text-center font-bold py-2 px-8 rounded-full cursor-pointer ${selectedCategory == "otras" ? "bg-ml_blue text-white" : "bg-white border-ml_blue border-2 text-ml_blue"}`}>
           Otras
         </div>
+        */}
+
       </div>
       <div className="w-full py-5">
         {
           faqs[selectedCategory as keyof Object]?.map((faq, index) => {
             return (
               <div key={index} className={`w-full py-4 border-b-[1px] ${currentFAQ == index ? " border-ml_orange" : "border-ml_blue"}`}>
-                <div className="text-ml_blue text-sm grid grid-cols-12 py-2 ">
-                  <div className={`col-span-11 ${currentFAQ == index ? "font-bold" : ""}`}>
+                <div className="text-ml_blue text-sm grid grid-cols-12 py-2 cursor-pointer">
+                  <div onClick={() => {currentFAQ != index ? setCurrentFAQ(index) : setCurrentFAQ(-1) }} className={`col-span-11 ${currentFAQ == index ? "font-bold" : ""}`}>
                     {faq.question}
                   </div>
                   <div className="col-span-1 flex justify-end items-center">

@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import React from 'react'
 
-function NavLink({ href, text }: { href: string, text: string }) {
+function NavLink({ href, text, classes}: { href: string, text: string, classes?: string }) {
     return (
-        <Link className='text-white py-2 nav-link sm:text-small' href={href} >
+        <Link className={`text-white py-2 nav-link sm:text-lg ${classes}`} href={href} >
             {text}
         </Link>
     )

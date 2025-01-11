@@ -50,7 +50,7 @@ export default function Home() {
             Somos tu aliado legal
           </p>
           <p className="font-extralight my-6 text-[16px] sm:text-[22px]">
-            Creemos en una servicios legales diseñada para todos, ofreciendo asesoría legal accesible, clara y con un trato cercano. Nuestro objetivo es brindar acompañamiento personalizado, asegurándonos de que cada persona reciba el apoyo que merece en cada etapa de su proceso.
+            Creemos en servicios legales diseñados para todos, ofreciendo asesoría legal accesible, clara y con un trato cercano. Nuestro objetivo es brindar acompañamiento personalizado, asegurándonos de que cada persona reciba el apoyo que merece en cada etapa de su proceso.
           </p>
         </div>
         <div className="md:hidden col-span-12 flex justify-center items-center">
@@ -112,8 +112,8 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div className="min-h-svh w-full px-5 sm:px-24 py-4 bg-services_blue flex flex-col items-center justify-center">
-        <p className="text-xl text-ml_blue font-bold text-center py-7">
+      <div className="min-h-fit w-full px-5 sm:px-24 py-4 bg-services_blue flex flex-col items-center justify-center">
+        <p className="text-3xl text-ml_blue font-bold text-center py-7">
           Nuestros Servicios
         </p>
         <div className="w-full grid grid-cols-12 gap-6">

@@ -231,8 +231,8 @@ function Nosotros() {
                     <Image src="/OurHistory.png" alt="Nuestra Historia" width={610} height={450} />
                 </div>
             </div>
-            <div className="min-h-128 h-fit w-full px-5 sm:px-24 py-4 bg-services_blue flex flex-col items-center justify-center">
-                <p className="text-xl text-ml_blue font-bold text-center py-7">
+            <div className="min-h-fit h-fit w-full px-5 sm:px-24 py-8 bg-services_blue flex flex-col items-center justify-center">
+                <p className="text-xl text-ml_blue font-bold text-center py-4">
                     Lo que nos define
                 </p>
                 <div className="w-full grid grid-cols-12 py-6 sm:py-0 gap-6">
