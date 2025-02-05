@@ -3,7 +3,10 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import axios from 'axios';
 import React from 'react'
+import ReCAPTCHA from 'react-google-recaptcha';
+import { toast } from 'sonner';
 
 function Contacto() {
     const [user, setUser] = React.useState<string>("");
@@ -11,6 +14,44 @@ function Contacto() {
     const [phone, setPhone] = React.useState<string>("");
     const [message, setMessage] = React.useState<string>("");
     const [checked, setChecked] = React.useState<boolean>(false);
+    const [recaptchaValue, setRecaptchaValue] = React.useState<string | null>(null);
+    const [sent, setSent] = React.useState<boolean>(false);
+
+    const onChange = async (value: string | null) => {
+        setRecaptchaValue(value)
+    }
+
+    const sendContact = async () => {
+        if (
+            user === "" ||
+            mail === "" ||
+            phone === "" ||
+            message === "" ||
+            !checked
+        ) {
+            toast.error("Por favor, llena todos los campos y acepta el aviso de privacidad");
+            return;
+        }
+
+        const axiosInstance = axios.create({
+            baseURL: "https://mlai-434520.uc.r.appspot.com",
+            headers: {
+                "Content-type": "application/json"
+            }
+        });
+
+        let res = await axiosInstance.post("/email/",
+            {
+                token: recaptchaValue,
+                name: user,
+                email: mail,
+                phone: phone,
+                message: message
+            })
+        toast.success("Correo enviado correctamente");
+        setSent(true);
+    };
+
     return (
         <div className="min-h-128 h-fit w-full px-5 sm:px-24 py-4 bg-contact_bg/50 flex flex-col items-center justify-center">
             <p className="text-xl text-ml_blue font-bold text-center py-7">
@@ -52,10 +93,21 @@ function Contacto() {
                         </label>
                     </div>
                 </div>
+                <div className="col-span-12 w-full flex items-center justify-center py-6">
+
+                    <ReCAPTCHA
+                        sitekey="6LclRccqAAAAALFruEMbyr2VCbWUZYoWZmcCJk62"
+                        onChange={onChange}
+                    />
+                </div>
             </div>
-            <div className="w-fit bg-ml_blue text-white font-bold text-base text-center rounded-full my-4 py-2 px-4 cursor-pointer transition-all hover:scale-105">
-                Enviar
-            </div>
+            {
+                !sent && (
+                    <button onClick={() => sendContact()} className="w-fit bg-ml_blue disabled:gray:300 text-white font-bold text-base text-center rounded-full my-4 py-2 px-4 cursor-pointer transition-all hover:scale-105">
+                        Enviar
+                    </button>
+                )
+            }
         </div>
     )
 }

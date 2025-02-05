@@ -5,7 +5,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
+import { toast } from 'sonner';
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from 'axios';
 
 function Contacto() {
 
@@ -14,6 +17,51 @@ function Contacto() {
     const [phone, setPhone] = React.useState<string>("");
     const [message, setMessage] = React.useState<string>("");
     const [checked, setChecked] = React.useState<boolean>(false);
+    const [honeypot, setHoneypot] = React.useState<string>("");
+    const [recatpchaValue, setRecaptchaValue] = React.useState<string | null>("");
+    const [sent, setSent] = React.useState<boolean>(false);
+
+    const onChange = async (value: string | null) => {
+        setRecaptchaValue(value)
+    }
+
+    const sendContact = async () => {
+        if (
+            user === "" ||
+            mail === "" ||
+            phone === "" ||
+            message === "" ||
+            !checked
+        ) {
+            toast.error("Por favor, llena todos los campos y acepta el aviso de privacidad");
+            return;
+        }
+
+        const axiosInstance = axios.create({
+            baseURL: "https://mlai-434520.uc.r.appspot.com",
+            headers: {
+                "Content-type": "application/json"
+            }
+        });
+
+       
+        try {
+            let res = await axiosInstance.post("/email/",
+                {
+                    token: recatpchaValue,
+                    name: user,
+                    email: mail,
+                    phone: phone,
+                    message: message
+                })
+        } catch (error) {
+            
+            return;
+        }
+
+        setSent(true)
+    };
+
 
     return (
         <div className="contacto w-full min-h-svh grid grid-cols-12">
@@ -41,6 +89,12 @@ function Contacto() {
                                 <Input id="phone" className='bg-transparent rounded-full border-ml_blue focus-visible:ring-0 focus-visible:ring-offset-0' placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
                             </div>
                         </div>
+                        <div className="col-span-12 hidden">
+                            <div className="flex flex-col space-y-1.5">
+                                <Label className='font-extralight' htmlFor="message">Asunto*</Label>
+                                <Input id="business" className='bg-transparent rounded-full border-ml_blue focus-visible:ring-0 focus-visible:ring-offset-0' placeholder="" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+                            </div>
+                        </div>
                         <div className="col-span-12">
                             <div className="flex flex-col space-y-1.5">
                                 <Label className='font-extralight' htmlFor="message">¿Cómo podemos ayudarte?*</Label>
@@ -60,9 +114,18 @@ function Contacto() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-fit bg-ml_blue text-white font-bold text-base text-center rounded-full my-4 py-2 px-4 cursor-pointer transition-all hover:scale-105">
-                        Ver más información
-                    </div>
+                    <ReCAPTCHA
+                        sitekey="6LclRccqAAAAALFruEMbyr2VCbWUZYoWZmcCJk62"
+                        onChange={onChange}
+                    />
+                    {
+                        !sent && (
+
+                            <div onClick={() => sendContact()} className="w-fit bg-ml_blue text-white font-bold text-base text-center rounded-full my-4 py-2 px-4 cursor-pointer transition-all hover:scale-105">
+                                Enviar
+                            </div>
+                        )
+                    }
                 </div>
             </div>
             <div className='col-span-12 md:col-span-6 pl-5 gap-4 flex flex-col justify-center mobilecontact'>
@@ -112,12 +175,12 @@ function Contacto() {
                             <p className='ml-2 text-xs text-ml_blue'>fernandosuarez@milegalista.com</p>
                         </div>
                     </div>
-                    <div className="flex gap-x-5">
+                    <div className="hidden xl:flex gap-x-5">
                         <Link href="https://www.facebook.com/milegalista">
                             <Image src="/ContactFacebook.svg" alt="Facebook" width={40} height={40} />
                         </Link>
                         <Link href="https://www.tiktok.com/@milegalista">
-                            <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} /> 
+                            <Image src="/ContactTiktok.svg" alt="TikTok" width={40} height={40} />
                         </Link>
                         <Link href="https://www.instagram.com/milegalista/">
                             <Image src="/ContactInstagram.svg" alt="Instagram" width={40} height={40} />
