@@ -35,7 +35,7 @@ export default function FMAnimationProvider({ children }: { children: React.Reac
 
     const observer = new IntersectionObserver(onIntersect, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
 
-    root.querySelectorAll("div").forEach((el) => {
+    root.querySelectorAll("div").forEach((el: Element) => {
       if (isEligible(el)) observer.observe(el);
     });
 
