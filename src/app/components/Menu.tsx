@@ -43,7 +43,10 @@ function Menu({ menuActive, setMenuActive }: MenuProps) {
             <div className="flex-1 h-4/6">
                 <div className="h-full">
                     <div className="hover:font-bold px-4 py-2">
-                        <div className="cursor-pointer" onClick={() => redirect("/nosotros")} >Sobre Nosotros</div>
+                        <div className="cursor-pointer" onClick={() => redirect("/ialegal")} >IA Legal</div>
+                    </div>
+                    <div className="hover:font-bold px-4 py-2">
+                        <div className="cursor-pointer" onClick={() => redirect("/nosotros")} >Nosotros</div>
                     </div>
                     <div className="hover:font-bold px-4 py-2">
                         <div className="cursor-pointer" onClick={() => redirect("/servicios")} >Servicios</div>

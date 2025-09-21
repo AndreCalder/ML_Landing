@@ -12,7 +12,14 @@ export default function FMAnimationProvider({ children }: { children: React.Reac
 
     const root = scope.current ?? document.body;
 
-    const isEligible = (el: Element) => el instanceof HTMLDivElement && !el.hasAttribute("data-no-anim");
+    const isEligible = (el: Element) => {
+      if (!(el instanceof HTMLDivElement)) return false;
+      const target = el as HTMLElement;
+      if (target.hasAttribute("data-no-anim")) return false;
+      if (target.closest("[data-no-anim]")) return false;
+      if (target.classList.contains("toaster") || target.closest(".toaster")) return false;
+      return true;
+    };
 
     const prepare = (el: Element) => {
       if (!isEligible(el)) return;

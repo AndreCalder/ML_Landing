@@ -37,7 +37,7 @@ function Navbar() {
             }
         }
     };
-
+    /*
     useEffect(() => {
         if (pathname === '/') {
             const navbar = document.getElementById('navbar');
@@ -74,11 +74,12 @@ function Navbar() {
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, [pathname]);
+    */
 
     return (
         <>
             <Menu menuActive={menuActive} setMenuActive={setMenuActive} />
-            <div id='navbar' className='w-svw min-h-16 fixed py-2 px-5 sm:px-12 md:px-24 items-center z-50'>
+            <div id='navbar' className='w-svw min-h-16 text-black bg-white shadow-md fixed py-2 px-5 sm:px-12 md:px-24 items-center z-50'>
                 <div className="grid grid-cols-12">
                     <div className="col-span-4  sm:col-span-2 flex items-center">
                         <Link href="/">
@@ -86,7 +87,8 @@ function Navbar() {
                         </Link>
                     </div>
                     <div className="hidden md:col-span-10 md:flex justify-end items-center gap-x-6">
-                        <NavLink classes={pathname.includes("nosotros") ? "font-bold" : ""} href="/nosotros" text="Sobre Nosotros" />
+                        <NavLink classes={pathname.includes("ialegal") ? "font-bold" : ""} href="/ialegal" text="IA Legal" />
+                        <NavLink classes={pathname.includes("nosotros") ? "font-bold" : ""} href="/nosotros" text="Nosotros" />
                         <NavLink classes={pathname.includes("servicios") ? "font-bold" : ""} href="/servicios" text="Servicios" />
                         <NavLink classes={pathname.includes("beneficios") ? "font-bold" : ""} href="/beneficios" text="Beneficios" />
                         <NavLink classes={pathname.includes("faq") ? "font-bold" : ""} href="/faq" text="Preguntas Frecuentes" />

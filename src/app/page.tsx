@@ -89,8 +89,8 @@ export default function Home() {
         </div>
       </div>
       {/* Sección 3 */}
-      <div className="bg-ml_blue min-h-svh grid grid-cols-12 px-5 sm:px-24 py-24 gap-4">
-        <div className="col-span-12 md:col-span-7">
+      <div className="bg-ml_blue min-h-[80svh] grid grid-cols-12 px-5 sm:px-24 py-24 gap-4">
+        <div className="col-span-12 md:col-span-7 flex flex-col justify-center">
           <p className="text-subtitle_mobile sm:text-subtitle text-white font-extrabold">
             No es solo una demanda, es una etapa de tu vida.
           </p>
