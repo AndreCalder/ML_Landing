@@ -99,7 +99,7 @@ function IALegal() {
 
     try {
       setSubmitting(true);
-
+      // Checking changes here
       const checkoutUrl = await generateStripeCheckoutURL(
         name,
         normalizedPhone,
