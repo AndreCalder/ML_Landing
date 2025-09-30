@@ -1,10 +1,38 @@
 "use server";
 
 import Stripe from "stripe";
+import axios from "axios";
+import { revalidatePath } from "next/cache";
+
+const axiosInstance = axios.create({
+  baseURL: "https://mlai-434520.uc.r.appspot.com",
+  headers: {
+    "Content-type": "application/json",
+  },
+});
+
+export type SchedulePayload = {
+  scheduled_at: { $date: string };
+  scheduled_at_cst: string;
+  metadata: Record<string, any>;
+  status: string;
+  attempts: number;
+  client_mail: string;
+  client_name: string;
+  client_phone: string;
+};
+
+export const scheduleCall = async (payload: SchedulePayload) => {
+  const res = await axiosInstance.post("/schedule/", payload);
+  return res.data;
+};
 
 export const generateStripeCheckoutURL = async (
   name: string,
-  phone: string
+  phone: string,
+  scheduleDate: string,
+  scheduleTime: string,
+  source: "asesoria" | "ialegal"
 ) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
@@ -19,7 +47,9 @@ export const generateStripeCheckoutURL = async (
     metadata: {
       name,
       phone,
-      source: "asesoria",
+      scheduleDate,
+      scheduleTime,
+      source,
     },
   });
 

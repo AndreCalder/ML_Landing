@@ -2,6 +2,7 @@
 
 import Stripe from "stripe";
 import { redirect } from "next/navigation";
+import { scheduleCall, type SchedulePayload } from "../actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -19,11 +20,74 @@ export default async function ConfirmarPage(props: {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
   const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-  const paymentStatus = session.payment_status; // "paid" | "unpaid" | "no_payment_required"
+  const paymentStatus = session.payment_status;
   const name = session.metadata?.name ?? "";
   const phone = session.metadata?.phone ?? "";
+  const scheduleDate = session.metadata?.scheduleDate ?? ""; // YYYY-MM-DD
+  const scheduleTime = session.metadata?.scheduleTime ?? ""; // HH:MM
+  const email = session.customer_details?.email ?? "";
 
   const isPaid = paymentStatus === "paid";
+
+  if (isPaid && name && phone && scheduleDate && scheduleTime) {
+    const [year, month, day] = scheduleDate.split("-").map((v) => Number(v));
+    const [hourStr, minuteStr] = scheduleTime.split(":");
+    const hour = Number(hourStr);
+    const minute = Number(minuteStr);
+
+    const mxParts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Mexico_City",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).formatToParts(new Date(year, (month - 1), day, hour, minute));
+    const part = (type: string) => mxParts.find((p) => p.type === type)!.value;
+    const mxDate = new Date(
+      Number(part("year")),
+      Number(part("month")) - 1,
+      Number(part("day")),
+      Number(part("hour")),
+      Number(part("minute"))
+    );
+
+    const scheduledAtISO = mxDate.toISOString();
+
+    const tzFormatter = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Mexico_City",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+      timeZoneName: "shortOffset",
+    });
+    const cstParts = tzFormatter.formatToParts(mxDate);
+    const c = (t: string) => cstParts.find((p) => p.type === t)!.value;
+    const offset = cstParts.find((p) => p.type === "timeZoneName")!.value
+      .replace("GMT", "");
+    const scheduledAtCST = `${c("year")}-${c("month")}-${c("day")}T${c("hour")}:${c("minute")}:00${offset}`;
+
+    const payload: SchedulePayload = {
+      scheduled_at: { $date: scheduledAtISO },
+      scheduled_at_cst: scheduledAtCST,
+      metadata: {},
+      status: "to_be_scheduled",
+      attempts: 0,
+      client_mail: email,
+      client_name: name,
+      client_phone: phone.replace("+", ""), 
+    };
+
+    try {
+      await scheduleCall(payload);
+    } catch (err) {
+      // Non-blocking: show success page even if scheduling failed
+    }
+  }
 
   return (
     <div className="pt-12 min-h-svh h-fit w-full">
