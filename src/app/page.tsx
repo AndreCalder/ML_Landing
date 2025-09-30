@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function Home() {
   useEffect(() => {
     (window as any).iMashEmbedConfig = {
-      assistantId: "e9cb863a-64e9-4a30-89c6-b64617d835e1",
+      assistantId: "71c34e91-0a76-48f8-a062-2c77bb8c60ba",
     };
     (function () {
       var script = document.createElement("script");

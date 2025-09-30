@@ -16,6 +16,7 @@ function IALegal() {
   const [scheduleDate, setScheduleDate] = React.useState<string>("");
   const [scheduleTime, setScheduleTime] = React.useState<string>("");
   const [submitting, setSubmitting] = React.useState<boolean>(false);
+  const [email, setEmail] = React.useState<string>("");
   const router = useRouter();
 
   const getNowInMexicoCity = () => {
@@ -98,10 +99,11 @@ function IALegal() {
 
     try {
       setSubmitting(true);
-      
+
       const checkoutUrl = await generateStripeCheckoutURL(
         name,
         normalizedPhone,
+        email,
         scheduleDate,
         scheduleTime,
         "ialegal"

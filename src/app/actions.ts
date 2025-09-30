@@ -5,14 +5,16 @@ import axios from "axios";
 import { revalidatePath } from "next/cache";
 
 const axiosInstance = axios.create({
-  baseURL: "https://mlai-434520.uc.r.appspot.com",
+  //baseURL: "https://mlai-434520.uc.r.appspot.com",
+  baseURL: "http://localhost:8080",
   headers: {
     "Content-type": "application/json",
   },
 });
 
 export type SchedulePayload = {
-  scheduled_at: { $date: string };
+  session_id: string;
+  scheduled_at: string;
   scheduled_at_cst: string;
   metadata: Record<string, any>;
   status: string;
@@ -23,13 +25,14 @@ export type SchedulePayload = {
 };
 
 export const scheduleCall = async (payload: SchedulePayload) => {
-  const res = await axiosInstance.post("/schedule/", payload);
+  const res = await axiosInstance.post("scheduler/schedule", payload);
   return res.data;
 };
 
 export const generateStripeCheckoutURL = async (
   name: string,
   phone: string,
+  email: string,
   scheduleDate: string,
   scheduleTime: string,
   source: "asesoria" | "ialegal"
@@ -47,6 +50,7 @@ export const generateStripeCheckoutURL = async (
     metadata: {
       name,
       phone,
+      email,
       scheduleDate,
       scheduleTime,
       source,
