@@ -117,7 +117,7 @@ export default async function ConfirmarPage(props: {
         </div>
         <Image
           className="absolute bottom-0 right-1/2 translate-x-1/2"
-          src="/ialegal/MariaFoto.png"
+          src="/ialegal/MarIaFoto.png"
           alt="Maria Glz"
           width={300}
           height={300}
