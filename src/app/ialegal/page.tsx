@@ -79,6 +79,15 @@ function IALegal() {
       toast.error("Por favor, llena tu nombre y número de teléfono");
       return;
     }
+    if (!email) {
+      toast.error("Por favor, ingresa tu correo electrónico");
+      return;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      toast.error("Ingresa un correo electrónico válido");
+      return;
+    }
     if (!scheduleDate || !scheduleTime) {
       toast.error("Selecciona la fecha y hora para tu llamada");
       return;
@@ -99,7 +108,6 @@ function IALegal() {
 
     try {
       setSubmitting(true);
-      // Checking changes here
       const checkoutUrl = await generateStripeCheckoutURL(
         name,
         normalizedPhone,
@@ -553,6 +561,19 @@ function IALegal() {
                   />
                 </div>
               </div>
+            <div className="col-span-12">
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="email">Correo electrónico*</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  required
+                  className="bg-transparent rounded-full border-ml_blue focus-visible:ring-0 focus-visible:ring-offset-0"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
               <div className="col-span-12">
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="date">Fecha de la llamada*</Label>

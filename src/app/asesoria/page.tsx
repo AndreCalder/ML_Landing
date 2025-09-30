@@ -92,6 +92,7 @@ export default function AsesoriaPage() {
       const checkoutUrl = await generateStripeCheckoutURL(
         name,
         normalizedPhone,
+        "",
         scheduleDate,
         scheduleTime,
         "asesoria"
