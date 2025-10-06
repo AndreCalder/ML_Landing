@@ -38,7 +38,10 @@ export default function AsesoriaPage() {
   const buildTimeOptions = React.useCallback((selectedDate: string) => {
     const options: string[] = [];
     const now = getNowInMexicoCity();
-    const todayStr = `${String(now.year)}-${String(now.month).padStart(2, "0")}-${String(now.day).padStart(2, "0")}`;
+    const todayStr = `${String(now.year)}-${String(now.month).padStart(
+      2,
+      "0"
+    )}-${String(now.day).padStart(2, "0")}`;
     const isToday = selectedDate === todayStr;
     const nowMinutes = now.hour * 60 + now.minute;
 
@@ -55,7 +58,10 @@ export default function AsesoriaPage() {
     return options;
   }, []);
 
-  const timeOptions = React.useMemo(() => buildTimeOptions(scheduleDate), [buildTimeOptions, scheduleDate]);
+  const timeOptions = React.useMemo(
+    () => buildTimeOptions(scheduleDate),
+    [buildTimeOptions, scheduleDate]
+  );
 
   React.useEffect(() => {
     if (scheduleTime && !timeOptions.includes(scheduleTime)) {
@@ -148,7 +154,8 @@ export default function AsesoriaPage() {
                 />
               </div>
             </div>
-            <div className="col-span-12">
+            {/*
+              <div className="col-span-12">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="date">Fecha de la llamada*</Label>
                 <Input
@@ -182,6 +189,8 @@ export default function AsesoriaPage() {
                 </select>
               </div>
             </div>
+              */}
+              
             <div className="col-span-12">
               <button
                 type="submit"

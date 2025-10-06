@@ -32,30 +32,8 @@ export default async function ConfirmarPage(props: {
 
   if (isPaid && name && phone && scheduleDate && scheduleTime) {
     const [year, month, day] = scheduleDate.split("-").map((v) => Number(v));
-    const [hourStr, minuteStr] = scheduleTime.split(":");
-    const hour = Number(hourStr);
-    const minute = Number(minuteStr);
 
-    const mxParts = new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/Mexico_City",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }).formatToParts(new Date(year, month - 1, day, hour, minute));
-    const part = (type: string) => mxParts.find((p) => p.type === type)!.value;
-    const mxDate = new Date(
-      Number(part("year")),
-      Number(part("month")) - 1,
-      Number(part("day")),
-      Number(part("hour")),
-      Number(part("minute"))
-    );
-
-    const scheduledAtISO = mxDate.toISOString();
-
+    // Determine the correct Mexico City offset for the selected date (DST-safe)
     const tzFormatter = new Intl.DateTimeFormat("en-CA", {
       timeZone: "America/Mexico_City",
       year: "numeric",
@@ -66,14 +44,17 @@ export default async function ConfirmarPage(props: {
       hourCycle: "h23",
       timeZoneName: "shortOffset",
     });
-    const cstParts = tzFormatter.formatToParts(mxDate);
-    const c = (t: string) => cstParts.find((p) => p.type === t)!.value;
-    const offset = cstParts
-      .find((p) => p.type === "timeZoneName")!
-      .value.replace("GMT", "");
-    const scheduledAtCST = `${c("year")}-${c("month")}-${c("day")}T${c(
-      "hour"
-    )}:${c("minute")}:00${offset}`;
+    const middayUTC = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
+    const offsetPart = tzFormatter
+      .formatToParts(middayUTC)
+      .find((p) => p.type === "timeZoneName")!.value; // e.g. GMT-06:00
+    const offset = offsetPart.replace("GMT", "");
+
+    // Build local Mexico City time with explicit offset and convert to UTC ISO
+    const scheduledAtCST = `${scheduleDate}T${scheduleTime}:00${offset}`;
+    const scheduledAtISO = new Date(scheduledAtCST)
+      .toISOString()
+      .replace(/\.\d{3}Z$/, "Z");
 
     const payload: SchedulePayload = {
       session_id: sessionId,

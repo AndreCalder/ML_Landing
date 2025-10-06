@@ -561,19 +561,20 @@ function IALegal() {
                   />
                 </div>
               </div>
-            <div className="col-span-12">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Correo electrónico*</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  required
-                  className="bg-transparent rounded-full border-ml_blue focus-visible:ring-0 focus-visible:ring-offset-0"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+              <div className="col-span-12">
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="email">Correo electrónico*</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    className="bg-transparent rounded-full border-ml_blue focus-visible:ring-0 focus-visible:ring-offset-0"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
               </div>
-            </div>
+              {/*
               <div className="col-span-12">
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="date">Fecha de la llamada*</Label>
@@ -609,6 +610,12 @@ function IALegal() {
                     ))}
                   </select>
                 </div>
+              </div>
+              */}
+              <div className="col-span-12 flex justify-center">
+                <p className="text-xs text-gray-500 font-light">
+                  *Llamada de prueba* 
+                </p>
               </div>
               <div className="col-span-12 flex items-center gap-3">
                 <button
