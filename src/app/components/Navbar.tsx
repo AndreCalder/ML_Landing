@@ -87,7 +87,7 @@ function Navbar() {
                         </Link>
                     </div>
                     <div className="hidden md:col-span-10 md:flex justify-end items-center gap-x-6">
-                        <NavLink classes={pathname.includes("ialegal") ? "font-bold" : ""} href="/ialegal" text="IA Legal" />
+                        <NavLink classes={pathname.includes("ialegal") ? "font-bold text-ml_orange " : "text-ml_orange "} href="/ialegal" text="IA Legal" />
                         <NavLink classes={pathname.includes("nosotros") ? "font-bold" : ""} href="/nosotros" text="Nosotros" />
                         <NavLink classes={pathname.includes("servicios") ? "font-bold" : ""} href="/servicios" text="Servicios" />
                         <NavLink classes={pathname.includes("beneficios") ? "font-bold" : ""} href="/beneficios" text="Beneficios" />

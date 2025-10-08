@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Contacto from "@/app/components/Contacto";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
@@ -88,11 +87,12 @@ function IALegal() {
       toast.error("Ingresa un correo electrónico válido");
       return;
     }
+    /*
     if (!scheduleDate || !scheduleTime) {
       toast.error("Selecciona la fecha y hora para tu llamada");
       return;
     }
-
+    */
     const digits = phone.replace(/\D/g, "");
     let normalizedPhone = "";
     if (digits.length === 10) {
@@ -112,8 +112,8 @@ function IALegal() {
         name,
         normalizedPhone,
         email,
-        scheduleDate,
-        scheduleTime,
+        scheduleDate || "",
+        scheduleTime || "",
         "ialegal"
       );
       router.push(checkoutUrl);
@@ -350,8 +350,9 @@ function IALegal() {
                   Completa tu información
                 </p>
                 <p className="font-light text-base lg:text-md text-gray-700 mt-2">
-                  Añade nombre completo, un teléfono para recibir la llamada y
-                  tu correo electrónico.
+                  Añade un nombre o alias (como prefieras), un teléfono para
+                  recibir la llamada de orientación y tu correo electrónico
+                  (obligatorio, ya que ahí recibirás tu reporte escrito).
                 </p>
               </div>
             </div>
@@ -368,9 +369,8 @@ function IALegal() {
                   Paga y agenda tu llamada
                 </p>
                 <p className="font-light text-base lg:text-md text-gray-700 mt-2">
-                  Por sólo $269<span className="text-sm align-top">.99</span>{" "}
-                  agenda tu consulta y elige fecha y hora para atenderla. A tu
-                  tiempo y ritmo.
+                  Por sólo $269.99 agenda tu consulta y elige fecha y hora para
+                  atenderla. A tu tiempo y ritmo.
                 </p>
               </div>
             </div>
@@ -388,7 +388,8 @@ function IALegal() {
                 </p>
                 <p className="font-light text-base lg:text-md text-gray-700 mt-2">
                   Ten a la mano documentos importantes, información de los
-                  involucrados y tus dudas a resolver.
+                  involucrados y tus dudas a resolver para cuando recibas la
+                  llamada.
                 </p>
               </div>
             </div>
@@ -405,9 +406,10 @@ function IALegal() {
                   Orientación jurídica respaldada
                 </p>
                 <p className="font-light text-base lg:text-md text-gray-700 mt-2">
-                  Obtén orientación jurídica completa, respuestas a tus
-                  preguntas, resumen por correo y opción de conectar con abogado
-                  si requieres acción legal.
+                  Obtén respuestas claras y resumen en tu correo electrónico.
+                  Mar<span className="text-ml_blue font-bold">+i</span>a te orientará; no sustituye la asesoría de un abogado
+                  litigante. Si necesitas representación legal, puedes solicitar
+                  ser contactado por los abogados de MiLegalista.
                 </p>
               </div>
             </div>
@@ -517,7 +519,6 @@ function IALegal() {
           </button>
         </div>
       </div>
-      <Contacto />
       {isDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
           <div className="w-full max-w-lg bg-white rounded-2xl p-6 shadow-xl">
@@ -614,7 +615,7 @@ function IALegal() {
               */}
               <div className="col-span-12 flex justify-center">
                 <p className="text-xs text-gray-500 font-light">
-                  *Llamada de prueba* 
+                  *Llamada de prueba*
                 </p>
               </div>
               <div className="col-span-12 flex items-center gap-3">
