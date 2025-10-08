@@ -29,11 +29,12 @@ export default async function ConfirmarPage(props: {
   const email = session.customer_details?.email ?? "";
 
   const isPaid = paymentStatus === "paid";
-
-  if (isPaid && name && phone && scheduleDate && scheduleTime) {
+  console.log("Payload:", name, phone, scheduleDate, scheduleTime);
+  if (isPaid && name && phone) {
+    /*
     const [year, month, day] = scheduleDate.split("-").map((v) => Number(v));
 
-    // Determine the correct Mexico City offset for the selected date (DST-safe)
+    Determine the correct Mexico City offset for the selected date (DST-safe)
     const tzFormatter = new Intl.DateTimeFormat("en-CA", {
       timeZone: "America/Mexico_City",
       year: "numeric",
@@ -49,17 +50,18 @@ export default async function ConfirmarPage(props: {
       .formatToParts(middayUTC)
       .find((p) => p.type === "timeZoneName")!.value; // e.g. GMT-06:00
     const offset = offsetPart.replace("GMT", "");
-
+    */
     // Build local Mexico City time with explicit offset and convert to UTC ISO
-    const scheduledAtCST = `${scheduleDate}T${scheduleTime}:00${offset}`;
-    const scheduledAtISO = new Date(scheduledAtCST)
+    //const scheduledAtCST = `${scheduleDate}T${scheduleTime}:00${offset}`;
+    /*const scheduledAtISO = new Date(scheduledAtCST)
       .toISOString()
       .replace(/\.\d{3}Z$/, "Z");
+    */
 
     const payload: SchedulePayload = {
       session_id: sessionId,
-      scheduled_at: scheduledAtISO,
-      scheduled_at_cst: scheduledAtCST,
+      scheduled_at: "",
+      scheduled_at_cst: "",
       metadata: {},
       status: "scheduled",
       attempts: 0,
@@ -79,7 +81,7 @@ export default async function ConfirmarPage(props: {
 
   return (
     <div className="pt-36 sm:pt-12 h-svh w-full">
-      <div className="w-full h-full px-5 sm:px-24 relative flex flex-col items-center justify-start sm:justify-center gap-y-4">
+      <div className="w-full h-full px-5 sm:px-24 relative flex flex-col items-center justify-start sm:justify-end gap-y-4">
         <p className="text-xl sm:text-3xl text-black font-extrabold mb-4">
           {isPaid ? "Pago confirmado" : "No se pudo confirmar el pago"}
         </p>
@@ -97,7 +99,7 @@ export default async function ConfirmarPage(props: {
           </a>
         </div>
         <Image
-          className="absolute bottom-0 right-1/2 translate-x-1/2"
+          className="mx-auto"
           src="/ialegal/MarIaFoto.png"
           alt="Maria Glz"
           width={300}
