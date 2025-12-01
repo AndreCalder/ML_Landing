@@ -25,29 +25,21 @@ function IALegal() {
     setTimezone(detectedTimezone);
   }, []);
 
-  const getNowInMexicoCity = () => {
-    const parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/Mexico_City",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }).formatToParts(new Date());
-    const part = (type: string) => parts.find((p) => p.type === type)!.value;
+  const getClientNow = () => {
+    // Get current time in the client's local timezone
+    const now = new Date();
     return {
-      year: Number(part("year")),
-      month: Number(part("month")),
-      day: Number(part("day")),
-      hour: Number(part("hour")),
-      minute: Number(part("minute")),
+      year: now.getFullYear(),
+      month: now.getMonth() + 1, // getMonth() returns 0-11
+      day: now.getDate(),
+      hour: now.getHours(),
+      minute: now.getMinutes(),
     };
   };
 
   const buildTimeOptions = React.useCallback((selectedDate: string) => {
     const options: string[] = [];
-    const now = getNowInMexicoCity();
+    const now = getClientNow();
     const todayStr = `${String(now.year)}-${String(now.month).padStart(
       2,
       "0"

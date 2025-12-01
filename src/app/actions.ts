@@ -5,8 +5,8 @@ import axios from "axios";
 import { revalidatePath } from "next/cache";
 
 const axiosInstance = axios.create({
-  baseURL: "https://mlai-434520.uc.r.appspot.com",
-  //baseURL: "http://localhost:8080",
+  //baseURL: "https://mlai-434520.uc.r.appspot.com",
+  baseURL: "http://localhost:8080",
   headers: {
     "Content-type": "application/json",
   },
