@@ -16,7 +16,14 @@ function IALegal() {
   const [scheduleTime, setScheduleTime] = React.useState<string>("");
   const [submitting, setSubmitting] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>("");
+  const [timezone, setTimezone] = React.useState<string>("");
   const router = useRouter();
+
+  // Detect user's timezone on component mount
+  React.useEffect(() => {
+    const detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    setTimezone(detectedTimezone);
+  }, []);
 
   const getNowInMexicoCity = () => {
     const parts = new Intl.DateTimeFormat("en-US", {
@@ -114,7 +121,8 @@ function IALegal() {
         email,
         scheduleDate || "",
         scheduleTime || "",
-        "ialegal"
+        "ialegal",
+        timezone
       );
       router.push(checkoutUrl);
     } catch (err) {

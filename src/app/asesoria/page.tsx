@@ -13,7 +13,14 @@ export default function AsesoriaPage() {
   const [scheduleDate, setScheduleDate] = React.useState<string>("");
   const [scheduleTime, setScheduleTime] = React.useState<string>("");
   const [submitting, setSubmitting] = React.useState<boolean>(false);
+  const [timezone, setTimezone] = React.useState<string>("");
   const router = useRouter();
+
+  // Detect user's timezone on component mount
+  React.useEffect(() => {
+    const detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    setTimezone(detectedTimezone);
+  }, []);
 
   const getNowInMexicoCity = () => {
     const parts = new Intl.DateTimeFormat("en-US", {
@@ -101,7 +108,8 @@ export default function AsesoriaPage() {
         "",
         scheduleDate,
         scheduleTime,
-        "asesoria"
+        "asesoria",
+        timezone
       );
       router.push(checkoutUrl);
     } catch (err) {

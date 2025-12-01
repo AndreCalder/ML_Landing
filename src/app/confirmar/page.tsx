@@ -26,43 +26,80 @@ export default async function ConfirmarPage(props: {
   const phone = session.metadata?.phone ?? "";
   const scheduleDate = session.metadata?.scheduleDate ?? ""; // YYYY-MM-DD
   const scheduleTime = session.metadata?.scheduleTime ?? ""; // HH:MM
+  const timezone = session.metadata?.timezone ?? "America/Mexico_City";
   const email = session.customer_details?.email ?? "";
 
   const isPaid = paymentStatus === "paid";
-  console.log("Payload:", name, phone, scheduleDate, scheduleTime);
+  console.log("Payload:", name, phone, scheduleDate, scheduleTime, timezone);
+  
   if (isPaid && name && phone) {
-    /*
-    const [year, month, day] = scheduleDate.split("-").map((v) => Number(v));
-
-    Determine the correct Mexico City offset for the selected date (DST-safe)
-    const tzFormatter = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "America/Mexico_City",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-      timeZoneName: "shortOffset",
-    });
-    const middayUTC = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
-    const offsetPart = tzFormatter
-      .formatToParts(middayUTC)
-      .find((p) => p.type === "timeZoneName")!.value; // e.g. GMT-06:00
-    const offset = offsetPart.replace("GMT", "");
-    */
-    // Build local Mexico City time with explicit offset and convert to UTC ISO
-    //const scheduledAtCST = `${scheduleDate}T${scheduleTime}:00${offset}`;
-    /*const scheduledAtISO = new Date(scheduledAtCST)
-      .toISOString()
-      .replace(/\.\d{3}Z$/, "Z");
-    */
+    // Format the scheduled datetime with the client's timezone
+    let scheduled_at = "";
+    let scheduled_at_with_tz = "";
+    
+    if (scheduleDate && scheduleTime) {
+      try {
+        // Create a date string in the format: YYYY-MM-DDTHH:MM:SS
+        const dateTimeString = `${scheduleDate}T${scheduleTime}:00`;
+        
+        // Parse the date in the client's timezone
+        const formatter = new Intl.DateTimeFormat("en-US", {
+          timeZone: timezone,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+          timeZoneName: "shortOffset",
+        });
+        
+        // Create a date object assuming the time is in the client's timezone
+        const [year, month, day] = scheduleDate.split("-").map(Number);
+        const [hour, minute] = scheduleTime.split(":").map(Number);
+        
+        // Create a date in UTC
+        const localDate = new Date(year, month - 1, day, hour, minute, 0);
+        
+        // Get the timezone offset in minutes
+        const offsetMinutes = localDate.getTimezoneOffset();
+        
+        // Convert to UTC ISO string
+        scheduled_at = new Date(
+          Date.UTC(year, month - 1, day, hour, minute, 0)
+        ).toISOString();
+        
+        // Get timezone offset for the client's timezone
+        const tzFormatter = new Intl.DateTimeFormat("en-CA", {
+          timeZone: timezone,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hourCycle: "h23",
+          timeZoneName: "shortOffset",
+        });
+        
+        const testDate = new Date(year, month - 1, day, 12, 0, 0);
+        const parts = tzFormatter.formatToParts(testDate);
+        const offsetPart = parts.find((p) => p.type === "timeZoneName")?.value || "GMT+00:00";
+        const offset = offsetPart.replace("GMT", "");
+        
+        // Create timezone-aware string
+        scheduled_at_with_tz = `${dateTimeString}${offset}`;
+      } catch (error) {
+        console.error("Error formatting datetime:", error);
+      }
+    }
 
     const payload: SchedulePayload = {
       session_id: sessionId,
-      scheduled_at: "",
-      scheduled_at_cst: "",
-      metadata: {},
+      scheduled_at: scheduled_at,
+      scheduled_at_cst: scheduled_at_with_tz,
+      metadata: { timezone },
       status: "scheduled",
       attempts: 0,
       client_mail: email,

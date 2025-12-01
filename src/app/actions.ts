@@ -35,7 +35,8 @@ export const generateStripeCheckoutURL = async (
   email: string,
   scheduleDate: string,
   scheduleTime: string,
-  source: "asesoria" | "ialegal"
+  source: "asesoria" | "ialegal",
+  timezone?: string
 ) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
@@ -54,6 +55,7 @@ export const generateStripeCheckoutURL = async (
       scheduleDate,
       scheduleTime,
       source,
+      timezone: timezone || "America/Mexico_City",
     },
   });
 
