@@ -575,7 +575,6 @@ function IALegal() {
                   />
                 </div>
               </div>
-              {/*
               <div className="col-span-12">
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="date">Fecha de la llamada*</Label>
@@ -612,7 +611,7 @@ function IALegal() {
                   </select>
                 </div>
               </div>
-              */}
+              
               <div className="col-span-12 flex justify-center">
                 <p className="text-xs text-gray-500 font-light">
                   *Llamada de prueba*
