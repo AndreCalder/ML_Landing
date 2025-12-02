@@ -4,7 +4,6 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { generateStripeCheckoutURL } from "../actions";
 
 export default function AsesoriaPage() {
@@ -14,7 +13,6 @@ export default function AsesoriaPage() {
   const [scheduleTime, setScheduleTime] = React.useState<string>("");
   const [submitting, setSubmitting] = React.useState<boolean>(false);
   const [timezone, setTimezone] = React.useState<string>("");
-  const router = useRouter();
 
   // Detect user's timezone on component mount
   React.useEffect(() => {
@@ -103,10 +101,9 @@ export default function AsesoriaPage() {
         "asesoria",
         timezone
       );
-      router.push(checkoutUrl);
+      window.location.href = checkoutUrl;
     } catch (err) {
       toast.error("Ocurrió un error al redirigir al pago");
-    } finally {
       setSubmitting(false);
     }
   };

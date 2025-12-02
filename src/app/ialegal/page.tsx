@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import { generateStripeCheckoutURL } from "../actions";
 
 function IALegal() {
@@ -17,7 +16,6 @@ function IALegal() {
   const [submitting, setSubmitting] = React.useState<boolean>(false);
   const [email, setEmail] = React.useState<string>("");
   const [timezone, setTimezone] = React.useState<string>("");
-  const router = useRouter();
 
   // Detect user's timezone on component mount
   React.useEffect(() => {
@@ -116,10 +114,9 @@ function IALegal() {
         "ialegal",
         timezone
       );
-      router.push(checkoutUrl);
+      window.location.href = checkoutUrl;
     } catch (err) {
       toast.error("Ocurrió un error al redirigir al pago");
-    } finally {
       setSubmitting(false);
     }
   };

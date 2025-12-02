@@ -1,5 +1,3 @@
-"use server";
-
 import Stripe from "stripe";
 import { redirect } from "next/navigation";
 import { scheduleCall, type SchedulePayload } from "../actions";
@@ -104,7 +102,7 @@ export default async function ConfirmarPage(props: {
       attempts: 0,
       client_mail: email,
       client_name: name,
-      client_phone: phone.replace("+", ""),
+      client_phone: phone,
     };
     console.log(payload);
     try {
