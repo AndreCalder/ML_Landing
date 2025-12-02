@@ -102,7 +102,6 @@ function IALegal() {
       );
       return;
     }
-
     try {
       setSubmitting(true);
       const checkoutUrl = await generateStripeCheckoutURL(
