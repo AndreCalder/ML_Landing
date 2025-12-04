@@ -45,12 +45,12 @@ function Footer() {
             </div>
             <Separator className="col-span-12 bg-ml_orange" />
             <div className="col-span-12 flex py-5 justify-center gap-4">
-                <div className="text-white cursor-pointer hover:underline" style={{opacity: 1}}>
+                <Link href="/avisoprivacidad" className="text-white cursor-pointer hover:underline" style={{opacity: 1}}>
                     <p>Aviso de Privacidad</p>
-                </div>
-                <div className="text-white cursor-pointer hover:underline" style={{opacity: 1}}>
+                </Link>
+                <Link href="/tyc" className="text-white cursor-pointer hover:underline" style={{opacity: 1}}>
                     <p>Términos y Condiciones</p>
-                </div>
+                </Link>
             </div>
             <div className="col-span-12 flex justify-center items-center opacity-100" style={{opacity: 1}}>
                 <p className="text-white text-sm">© 2025 MiLegalista ®. Todos los derechos reservados.</p>

@@ -23,6 +23,13 @@ function IALegal() {
     setTimezone(detectedTimezone);
   }, []);
 
+  // Check for #agendar hash in URL to auto-open dialog
+  React.useEffect(() => {
+    if (window.location.hash === "#agendar") {
+      setIsDialogOpen(true);
+    }
+  }, []);
+
   const getClientNow = () => {
     // Get current time in the client's local timezone
     const now = new Date();
@@ -122,7 +129,7 @@ function IALegal() {
 
   return (
     <div className="pt-12 min-h-svh h-fit w-full">
-      <div className="w-full h-[16rem] aiLegal grid grid-cols-12 px-5 sm:px-24">
+      <div className="w-full min-h-[23rem] aiLegal grid grid-cols-12 px-5 sm:px-24">
         <div className="col-span-12 sm:col-span-6 flex flex-col gap-y-2 justify-center items-start">
           <p className="text-white text-2xl">¡NUEVO!</p>
           <p className="text-ml_orange text-title text-5xl font-extrabold">
@@ -136,7 +143,7 @@ function IALegal() {
             Conoce a la Lic. Mar<span className="text-ml_blue">+ia</span>{" "}
             González: tu IA Legal en Materia Familiar
           </p>
-          <p className="font-extralight text-center my-6 text-md sm:text-lg">
+          <p className="font-extralight text-center my-12 text-md sm:text-lg">
             Resuelve todas tus{" "}
             <span className="font-extrabold">dudas legales HOY.</span> Llamada
             directa con IA especializada, respaldada por nuestro despacho
@@ -237,7 +244,7 @@ function IALegal() {
         </p>
         <div className="w-full flex flex-wrap justify-center items-center gap-6">
           <div
-            className="w-full lg:w-1/4 h-48 lg:h-72 rounded-b-[15px] relative"
+            className="w-full lg:w-1/4 h-48 lg:h-96 rounded-b-[15px] relative"
             style={{
               backgroundImage: "url('/ialegal/Dif1.png')",
               backgroundSize: "cover",
@@ -251,7 +258,7 @@ function IALegal() {
                   src="/ialegal/DespachoReal.svg"
                   alt="Despacho Real"
                   width={40}
-                  height={40}
+                  height={80}
                 />
               </div>
               <p className="font-bold text-sm sm:text-base text-center">
@@ -264,7 +271,7 @@ function IALegal() {
             </div>
           </div>
           <div
-            className="w-full lg:w-1/4 h-48 lg:h-72 rounded-b-[15px] relative"
+            className="w-full lg:w-1/4 h-48 lg:h-96 rounded-b-[15px] relative"
             style={{
               backgroundImage: "url('/ialegal/Dif2.png')",
               backgroundSize: "cover",
@@ -292,7 +299,7 @@ function IALegal() {
             </div>
           </div>
           <div
-            className="w-full lg:w-1/4 h-48 lg:h-72 rounded-b-[15px] relative"
+            className="w-full lg:w-1/4 h-48 lg:h-96 rounded-b-[15px] relative"
             style={{
               backgroundImage: "url('/ialegal/Dif3.png')",
               backgroundSize: "cover",
@@ -314,7 +321,6 @@ function IALegal() {
               </p>
               <p className="font-extralight text-xs sm:text-sm text-center my-2">
                 $269.99 todo incluido. Sin sorpresas, sin tarifas por minuto.
-                Incluye resumen escrito por correo electrónico.
               </p>
             </div>
           </div>
@@ -327,8 +333,8 @@ function IALegal() {
             className=""
             src="/ialegal/ComoFunciona.png"
             alt="Como Funciona"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
           />
         </div>
         <div className="col-span-12 lg:col-span-6 flex flex-col justify-center items-start ">
@@ -347,8 +353,7 @@ function IALegal() {
                 </p>
                 <p className="font-light text-base lg:text-md text-gray-700 mt-2">
                   Añade un nombre o alias (como prefieras), un teléfono para
-                  recibir la llamada de orientación y tu correo electrónico
-                  (obligatorio, ya que ahí recibirás tu reporte escrito).
+                  recibir la llamada de orientación y tu correo electrónico.
                 </p>
               </div>
             </div>
@@ -402,10 +407,11 @@ function IALegal() {
                   Orientación jurídica respaldada
                 </p>
                 <p className="font-light text-base lg:text-md text-gray-700 mt-2">
-                  Obtén respuestas claras y resumen en tu correo electrónico.
-                  Mar<span className="text-ml_blue font-bold">+i</span>a te orientará; no sustituye la asesoría de un abogado
-                  litigante. Si necesitas representación legal, puedes solicitar
-                  ser contactado por los abogados de MiLegalista.
+                  Obtén respuestas claras. Mar
+                  <span className="text-ml_blue font-bold">+i</span>a te
+                  orientará; no sustituye la asesoría de un abogado litigante.
+                  Si necesitas representación legal, puedes solicitar ser
+                  contactado por los abogados de MiLegalista.
                 </p>
               </div>
             </div>
@@ -442,8 +448,8 @@ function IALegal() {
                 <Image
                   src="/ialegal/Llamada.svg"
                   alt="Llamada inmediata"
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                 />
               </div>
               <p className="text-white font-light text-lg">
@@ -455,8 +461,8 @@ function IALegal() {
                 <Image
                   src="/ialegal/DerechoFamiliar.svg"
                   alt="Derecho familiar"
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                 />
               </div>
               <p className="text-white font-light text-lg">
@@ -468,8 +474,8 @@ function IALegal() {
                 <Image
                   src="/ialegal/LenguajeClaro.svg"
                   alt="Lenguaje claro"
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                 />
               </div>
               <p className="text-white font-light text-lg">
@@ -481,8 +487,8 @@ function IALegal() {
                 <Image
                   src="/ialegal/Horarios.svg"
                   alt="Horarios"
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                 />
               </div>
               <p className="text-white font-light text-lg">
@@ -499,13 +505,13 @@ function IALegal() {
           </button>
         </div>
       </div>
-      <div className="w-full h-[18rem] solicitaBG2 sm:px-24 flex flex-col justify-center items-center gap-y-4">
-        <div className="w-full h-full lg:h-fit lg:w-fit px-5 sm:px-0 flex flex-col justify-center items-start gap-y-4 bg-black/30 sm:bg-transparent">
-          <p className="text-white sm:text-ml_blue text-5xl font-extrabold">
-            ¡Hablemos ahora!
+      <div className="w-full min-h-[23rem] h-fit solicitaBG2 sm:px-24 flex flex-col justify-center items-center gap-y-4">
+        <div className="w-full h-full lg:h-fit  py-12 lg:w-fit px-5 sm:px-0 flex flex-col justify-center items-start gap-y-4 bg-black/40 sm:bg-transparent">
+          <p className="text-white sm:text-ml_blue text-5xl lg:max-w-2xl font-extrabold text-wrap">
+            La incertidumbre desgasta. La información te da paz.
           </p>
           <p className="text-white text-2xl">
-            Resuelve tus dudas con la ayuda de Mar+ia
+            ¡Hablemos ahora! y empieza a recuperar la tranquilidad que mereces.
           </p>
           <button
             onClick={() => setIsDialogOpen(true)}
@@ -607,7 +613,7 @@ function IALegal() {
                   </select>
                 </div>
               </div>
-              
+
               <div className="col-span-12 flex justify-center">
                 <p className="text-xs text-gray-500 font-light">
                   *Llamada de prueba*

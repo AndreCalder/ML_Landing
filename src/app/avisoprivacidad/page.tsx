@@ -2,14 +2,14 @@ import React from 'react'
 
 function AvisoPrivacidad() {
   return (
-    <div className='pt-12 min-h-svh h-fit w-full px-5 sm:px-24'>
+    <div className='min-h-svh h-fit w-full px-5 sm:px-24 text-black opacity-100 pt-12  sm:pt-24' style={{opacity: 1}}>
       <div className="p-6  text-gray-800">
         <h1 className="text-3xl font-bold mb-4">Aviso de Privacidad</h1>
         <p className="mb-4">
           Milegalista (en adelante, "Milegalista"), con domicilio en Durango No. 2, Interior 102,
-          Colonia Roma, Alcaldía Cuauhtémoc, Ciudad de México, C.P. 06700, y correo electrónico
-          <a href="mailto:Fernandosuarez@milegalista.com" className="text-blue-500 underline">
-            Fernandosuarez@milegalista.com
+          Colonia Roma, Alcaldía Cuauhtémoc, Ciudad de México, C.P. 06700, y correo electrónico{" "}
+          <a href="mailto:fernandosuarez@milegalista.com" className="text-blue-500 underline">
+            fernandosuarez@milegalista.com
           </a>, es responsable del tratamiento de tus datos personales y se compromete a proteger tu privacidad
           de conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
         </p>
@@ -45,8 +45,8 @@ function AvisoPrivacidad() {
         <p className="mb-4">
           Tienes derecho a acceder a tus datos personales, rectificarlos en caso de ser inexactos, cancelarlos cuando consideres que no son
           necesarios para alguna de las finalidades señaladas en este aviso, así como a oponerte al tratamiento de los mismos para fines específicos.
-          Para ejercer tus derechos ARCO, puedes enviar una solicitud a
-          <a href="mailto:Fernandosuarez@milegalista.com" className="text-blue-500 underline">Fernandosuarez@milegalista.com</a>.
+          Para ejercer tus derechos ARCO, puedes enviar una solicitud a {" "}
+          <a href="mailto:fernandosuarez@milegalista.com" className="text-blue-500 underline">fernandosuarez@milegalista.com</a>.
         </p>
         <h2 className="text-2xl font-semibold mt-6 mb-3">¿Cómo protegemos tus datos personales?</h2>
         <ul className="list-disc pl-6 mb-4">
@@ -70,8 +70,8 @@ function AvisoPrivacidad() {
         <p className="mb-4">Milegalista no transferirá tus datos personales a países fuera de México.</p>
         <h2 className="text-2xl font-semibold mt-6 mb-3">Resolución de disputas</h2>
         <p className="mb-4">
-          En caso de tener alguna duda o queja relacionada con el tratamiento de tus datos personales, puedes comunicarte a la dirección de correo electrónico
-          <a href="mailto:Fernandosuarez@milegalista.com" className="text-blue-500 underline">Fernandosuarez@milegalista.com</a>.
+          En caso de tener alguna duda o queja relacionada con el tratamiento de tus datos personales, puedes comunicarte a la dirección de correo electrónico{" "}
+          <a href="mailto:fernandosuarez@milegalista.com" className="text-blue-500 underline">fernandosuarez@milegalista.com</a>.
         </p>
         <h2 className="text-2xl font-semibold mt-6 mb-3">Consentimiento</h2>
         <p className="mb-4">

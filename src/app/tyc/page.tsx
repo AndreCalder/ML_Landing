@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TermsAndConditionsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 space-y-8">
+    <div className="max-w-4xl mx-auto px-6 py-12 space-y-8 text-black opacity-100 pt-24" style={{opacity: 1}}>
       <h1 className="text-4xl font-bold text-center mb-8">
         TÉRMINOS Y CONDICIONES
         <br />
