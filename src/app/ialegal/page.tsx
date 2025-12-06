@@ -616,8 +616,8 @@ function IALegal() {
 
               <div className="col-span-12 flex justify-center">
                 <p className="text-xs text-gray-500 font-light">
-                El pago se realiza a través de Stripe, una plataforma de pagos
-                segura y utilizada a nivel mundial.
+                  El pago se realiza a través de Stripe, una plataforma de pagos
+                  segura y utilizada a nivel mundial.
                 </p>
               </div>
               <div className="col-span-12 flex items-center gap-3">
