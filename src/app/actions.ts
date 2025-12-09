@@ -5,8 +5,8 @@ import axios from "axios";
 import { revalidatePath } from "next/cache";
 
 const axiosInstance = axios.create({
-  //baseURL: "https://mlai-434520.uc.r.appspot.com",
-  baseURL: "http://localhost:8080",
+  baseURL: "https://mlai-434520.uc.r.appspot.com",
+  //baseURL: "http://localhost:8080",
   headers: {
     "Content-type": "application/json",
   },
@@ -40,7 +40,7 @@ export const generateStripeCheckoutURL = async (
 ) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL  || "http://localhost:3000";
   const priceId = process.env.STRIPE_PRICE_ID_ASESORIA || "price_1S5xflLZwE3PZI76Zq9Lihxz"; 
   const checkoutSession = await stripe.checkout.sessions.create({
     mode: "payment",
