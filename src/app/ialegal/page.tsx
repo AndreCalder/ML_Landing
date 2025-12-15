@@ -99,13 +99,16 @@ function IALegal() {
     */
     const digits = phone.replace(/\D/g, "");
     let normalizedPhone = "";
-    if (digits.length === 10) {
-      normalizedPhone = `+52${digits}`;
-    } else if (digits.length === 12 && digits.startsWith("52")) {
-      normalizedPhone = `+${digits}`;
+    // Remove country code 52 if present
+    let phoneDigits = digits;
+    if (phoneDigits.startsWith("52") && phoneDigits.length > 10) {
+      phoneDigits = phoneDigits.substring(2);
+    }
+    if (phoneDigits.length === 10) {
+      normalizedPhone = phoneDigits;
     } else {
       toast.error(
-        "Ingresa un número de teléfono mexicano válido (10 dígitos o con 52/+52)"
+        "Ingresa un número de teléfono mexicano válido (10 dígitos)"
       );
       return;
     }
